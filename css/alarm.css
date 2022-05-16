@@ -1,0 +1,462 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+    font-weight: 700;
+    outline: none;
+    
+    
+    
+    
+}
+:root {
+    --main-color: #F87070;
+    --font1:'Kumbh Sans', sans-serif;
+    --font2:'Roboto Slab', serif;
+    --font3: 'Space Mono', monospace;
+}
+ 
+body{
+    width: 100%;
+    height: 100vh;
+    background: #0f0c29;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+    z-index: 5;
+    
+    
+}
+
+main {
+width: 70%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    /* TO CHANGE v*/
+    justify-content: space-between; 
+    font-family: var(--font1);
+}
+h1 {
+    font-size: 2rem;
+    color: aliceblue;
+    margin-top: 30px;
+    
+}
+.buttons{
+    position: absolute;
+    width: 412px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #0f0c29;
+    border-radius: 20px;
+    top: 120px;
+  
+}
+.btn{
+width: 33%;
+height: 99%;
+    border-radius: 20px;
+    background-color: transparent;
+    color: gray;
+     outline: none;
+    border: 0px;
+    font-size: 1rem;
+    transition: 0.2s  all;
+    cursor: pointer;
+}
+.selected{
+    background-color: var(--main-color);
+    color: #0f0c29;
+}
+.outerCircle {
+    
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    
+    background: -webkit-linear-gradient(to left, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    cursor: pointer;
+    
+    transform:translateX(-50%) translateY(-30%)  scale(1.18);
+    
+  -webkit-box-shadow: -19px -6px 17px 5px rgba(227,255,251,0.18); 
+box-shadow: -19px -6px 17px 5px hsla(244, 23%, 44%,40%);
+/*
+animation: 
+*/  
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translateX(-50%) translateY(-30%)  scale(1.09) translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translateX(-50%) translateY(-30%)  scale(1.09) translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translateX(-50%) translateY(-30%)  scale(1.09) translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translateX(-50%) translateY(-30%)  scale(1.09) translate3d(4px, 0, 0);
+    }
+  }
+
+.outerCirclePressed {
+    transform:translateX(-50%) translateY(-30%)  scale(1.09) !important;
+
+}
+
+
+.clock {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+ border-radius: 50%;
+  top: 25px;
+ left: 25px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer{
+  fill: #0f0c29;
+  stroke: none;
+}
+
+/* The SVG path that displays the timer's progress */
+.base-timer__path-elapsed {
+  stroke-width: 5px;
+  stroke: transparent;
+}
+.base-timer-label {
+  position: absolute;
+  
+  /* Size should match the parent container */
+  width: 300px;
+  height: 300px;
+  
+  /* Keep the label aligned to the top */
+  top: 0;
+  
+  /* Create a flexible box that centers content vertically and horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    color: aliceblue;
+
+  /* Sort of an arbitrary number; adjust to your liking */
+  font-size: 60px;
+  line-height: 50px;
+}
+.startPause {
+     position: absolute;
+     width: auto;
+    height: auto;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 0px;
+    
+    font-size: 1rem;
+    letter-spacing: 5px;
+    color: aliceblue; 
+    background-color: transparent;
+    outline: none;
+}
+.startPause:hover{
+    color: var(--main-color);
+}
+.base-timer__path-remaining {
+  /* Just as thick as the original ring */
+  stroke-width: 5px;
+
+  /* Rounds the line endings to create a seamless circle */
+  stroke-linecap: round;
+
+  /* Makes sure the animation starts at the top of the circle */
+  transform: rotate(90deg);
+  transform-origin: center;
+
+  /* One second aligns with the speed of the countdown timer 
+  transition: 1s linear all; */
+    
+
+  /* Allows the ring to change color when the color value updates */
+  stroke: var(--main-color);
+stroke-dasharray: 283 283;
+}
+
+.base-timer__svg {
+  /* Flips the svg and makes the animation to move left-to-right */
+  transform: scaleX(-1);
+}
+/* cover and setting, REMEMBER TO CLOSE */
+.cover {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    opacity: 50%;
+    position: absolute;
+    z-index: 99;
+}
+.audioIcons{
+    color: aliceblue;
+    position: absolute;
+    top: 25%;
+    left: 46%;
+    z-index: 9000;
+    font-size: 1.8rem;
+}
+.hideAudio{
+    
+    position: absolute;
+    top: 2000px;
+}
+.audioIcons:hover{
+    color: var(--main-color);
+
+}
+.setting{
+    margin: 3%;
+    transition: 1s ease-out;
+    cursor: pointer;
+    color: aliceblue;
+}
+.setting:hover {
+transform: rotate(360deg) scale(1.1);
+    color: var(--main-color);
+    
+}
+#settingIcon {
+    transform: scale(2.3)
+    
+}
+
+#spaceForSetting{
+   
+    width: 35%;
+    height: 60%;
+    
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-54%) translateY(-50%);
+    
+    z-index: -1;
+}
+.settingBox{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    margin:auto;
+    padding: 20px;
+    background-color:white;
+    border-radius: 25px;
+    z-index: 99;
+}
+
+h3{
+    width: 100%;
+    height: auto;
+    text-align: start;
+}
+
+.titleSet {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: auto;
+    
+    border: 5px;
+    border-bottom-style: solid;
+    border-color: aliceblue;
+
+    text-align: start;
+}
+#closeIcon {
+    transform: scale(1.5);
+    cursor: pointer;
+    margin-bottom: 6%;
+}
+#closeIcon:hover {
+    color: var(--main-color);
+}
+.middleSetBox{
+    
+    height: 100%;
+    
+    
+
+}
+#timeSetTitle{
+    margin-top: 20px;
+    margin-left: 7%;
+    margin-bottom: 5px;
+    
+    
+}
+.timeSet{
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 35% 65%;
+    justify-items: center;
+  
+}
+#mSpan {
+    font-size: 0.8rem;
+}
+
+.inputText{
+    width: 80px;
+    height: 2rem;
+    border-radius: 10px;
+    outline: none;
+    text-align: center;
+    background-color: aliceblue;
+    font-family: var(--font1);
+    font-size: 1.1rem;
+    
+}
+.fontSet, .colorSet{
+    
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 12px;
+    border-top: 5px;
+    border-color: aliceblue;
+
+    border-top-style: solid;
+}
+
+.iconSection{
+width: 100%;
+    height: auto;
+    display: flex;
+    justify-content:space-evenly
+}
+.fontIcon{
+     background-color: aliceblue;
+     color: black;
+}
+.fontIcon:nth-child(1){
+    font-family: var(--font1);
+}
+.fontIcon:nth-child(2){
+     font-family: var(--font2);
+}
+.fontIcon:nth-child(3){
+        font-family:  var(--font3); 
+}
+.selectedFont{
+    background-color: black !important;
+    color: aliceblue !important;
+    
+}
+.icon {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+    border: 2px;
+    display: flex;
+    border-style: solid;
+    align-items: center;
+    justify-content: center;
+}
+.hiddenIcon {
+    z-index: -10;
+}
+.btnApply{
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+.btnApply:hover{
+    color: var(--main-color);
+    background-color: aliceblue;
+}
+.salmon {
+    background-color: #F87070;
+}
+.blue {
+    background-color: aqua;
+}
+.violet {
+    background-color: violet;
+}
+
+@media screen and (max-width: 600px) {
+
+   .buttons {
+       width: 90%;
+   }
+    .outerCircle {
+       transform:translateX(-50%) translateY(-30%)  scale(0.9);
+        
+    }
+    .outerCirclePressed {
+        transform:translateX(-50%) translateY(-30%)  scale(0.8) !important;
+    
+    }
+ 
+    
+    #spaceForSetting {
+        width: 80%;
+        height: auto;
+        left: 50%;
+    top: 50%;
+    transform: translateX(-56%) translateY(-50%);
+        
+    }
+}
+
+@media screen and (max-height: 600px) {
+  .outerCircle {
+       transform:translateX(-50%) translateY(-30%)  scale(0.9);
+        
+    }
+    .outerCirclePressed {
+        transform:translateX(-50%) translateY(-30%)  scale(0.8) !important;
+  
+    }
+  h1{
+    margin:0px;
+  }
+  .buttons {
+    top: 30px;
+margin: 0px;
+  }
+  .spaceForSetting{
+height: 90%;
+  }
+  .settingBox {
+  
+    height: 500px; 
+    transform: translatey(-20%);
+  }
+}
+

@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    
+    <title>Pomodoro App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" 
+crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/alarm.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+<!-- fonts -->
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    
+   
+
+    </head>
+    <body>
+        <main id="main">
+        <h1>pomodoro</h1>
+            
+                        <div id="cover"></div>
+            
+            <div class="buttons">
+                <button type="button" class="btn selected" id="btn1">pomodoro</button>
+                <button type="button"class="btn" id="btn2">short break</button>
+                <button type="button" class="btn" id="btn3">long break</button>
+            </div>
+            <div class="outerCircle">
+              <div class="audioIcons">
+              <i class="fas fa-volume-up"></i>
+              <i class="fas fa-volume-mute hideAudio"></i>
+            </div>
+            <div class="clock">
+              <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g class="base-timer">
+      <circle class="base-timer__path-elapsed" cx="50" cy="50" r="50" />
+            
+      <path
+        id="base-timer-path-remaining"
+        stroke-dasharray="283"
+        class="base-timer__path-remaining ${remainingPathColor}"
+        d="
+          M 50, 50
+          m -45, 0
+          a 45,45 0 1,0 90,0
+          a 45,45 0 1,0 -90,0
+        "
+      ></path>
+    </g>
+  </svg>
+                
+  <span class="base-timer-label">25:00</span>
+                <span class="startPause"> START</span>
+            </div>
+                </div>
+            <div id="spaceForSetting"></div>
+            <div class="setting">
+                <i class="fas fa-cog" id="settingIcon"></i>
+            </div>
+            
+            
+       
+        </main>
+    
+    </body>
+
+     <script src="js/alarm.js"></script>
+    </html>
