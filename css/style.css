@@ -1,18 +1,17 @@
- *{
-
-    margin:0;
-padding:0;
-box-sizing: border-box;
- }
-
-
-
-
-body {
-
-    height: 100vh;
-    background:linear-gradient(to right);
-    display: flex;
-    justify-content: center;
-    font-family:"opensans";
-}
+#horloge{
+    position:relative; height:300px;       width:300px; background-color:lightblue; border-radius:150px;
+  margin: 0 auto;
+  margin-top:180px;
+     box-shadow: 10px 10px ;
+  }
+  
+  #heures{
+    width:80px; height:5px; background-color:white;  }
+  
+  #minutes{
+    width:140px; height:4px; background-color:white;}
+  
+  #secondes{
+    width:140px; height:2px; background-color:black;}
+  
+  #heures, #minutes, #secondes{transform-origin:left center; position:absolute; top:150px; left:150px;}
